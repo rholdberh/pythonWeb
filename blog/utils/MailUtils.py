@@ -7,7 +7,7 @@ def readMessageFromFile():
     return message.read()
 
 
-def getBodyMesage(data):
+def getBodyMesage():
     return readMessageFromFile()
 
 

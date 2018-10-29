@@ -1,7 +1,6 @@
 from django.shortcuts import render_to_response, render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect
-from blog.utils import MailUtils
 from .forms import CredentialsForm, UserCheckbox, EmailForm
 
 

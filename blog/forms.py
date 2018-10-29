@@ -16,7 +16,7 @@ class CredentialsForm(forms.Form):
     lastName = forms.CharField(label='Surname', max_length=10)
 
 class EmailForm(forms.Form):
-    prepMessage = MailUtils.getBodyMesage("2018-12-11")
+    prepMessage = MailUtils.getBodyMesage()
     email = forms.CharField(
         widget=forms.Textarea(),
         label='Mail',
