@@ -1,9 +1,12 @@
 from django import forms
 
+from blog.utils import MailUtils
 
-class UserlistForm(forms.Form):
-    users = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple,
-                                      label="Notify and subscribe users to this post:")
+
+class UserCheckbox(forms.Form):
+    emails = MailUtils.getListOfRecepients()
+    userChoices = [(v, v) for v in emails]
+    emailChoses = forms.MultipleChoiceField(choices=userChoices, widget=forms.CheckboxSelectMultiple, )
 
 
 class CredentialsForm(forms.Form):

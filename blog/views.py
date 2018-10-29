@@ -2,7 +2,7 @@ from django.shortcuts import render_to_response, render, redirect, get_object_or
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect
 from blog.utils import MailUtils
-from .forms import CredentialsForm
+from .forms import CredentialsForm, UserCheckbox
 
 
 def index(requet):
@@ -10,10 +10,13 @@ def index(requet):
     emails = MailUtils.getListOfRecepients()
     credForm = CredentialsForm()
 
+    checkBoxes = UserCheckbox()
+
     content = {
         'body': prepMessage,
+        'credentialsForm': credForm,
         'emails': emails,
-        'form': credForm
+        'userCheckBoxes': checkBoxes,
     }
     return render_to_response('index.html', content)
 
@@ -27,15 +30,23 @@ def getCredentials(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = CredentialsForm(request.POST)
+        credentialsForm = CredentialsForm(request.POST)
         # check whether it's valid:
-        if form.is_valid():
+        if credentialsForm.is_valid():
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
-            firstName = form.cleaned_data['firstName']
+            firstName = credentialsForm.cleaned_data['firstName']
+
+
+            emails = request.POST.getlist('email')
+
+            emails2 = request.POST.getlist('emailChoses')
+
+            print("BLAAAAAAAAAAAAAAAAAAAAA")
+            print(emails2)
             content = {
-                'user': firstName,
+                'user': emails2,
             }
             return render_to_response('done.html', content)
         else:
@@ -43,6 +54,6 @@ def getCredentials(request):
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        form = CredentialsForm()
+        credentialsForm = CredentialsForm()
 
-    return render(request, 'error.html', {'form': form})
+    return render(request, 'error.html', {'form': credentialsForm})

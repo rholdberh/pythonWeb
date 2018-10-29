@@ -16,14 +16,19 @@
     <h2>Title</h2>
     <h3>Posted on date by author</h3>
     <p>{{ body }}</p>
-    <p>{{ emails }}</p>
 
 </div>
 
 
 <form action="saveCred" method="post">
     {% csrf_token %}
-    {{ form | linebreaks }}
+    {{ userCheckBoxes }}
+    {{ credentialsForm | linebreaks }}
+    {% for email in emails %}
+        {%if email%}
+            <input type="checkbox" name="email" value="{{email}}" /> {{email}}<br />
+        {% endif %}
+    {% endfor %}
     <input type="submit" value="Submit">
 </form>
 
