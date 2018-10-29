@@ -6,7 +6,7 @@ from blog.utils import MailUtils
 class UserCheckbox(forms.Form):
     emails = MailUtils.getListOfRecepients()
     userChoices = [(v, v) for v in emails]
-    emailChoses = forms.MultipleChoiceField(choices=userChoices, widget=forms.CheckboxSelectMultiple, )
+    emailChoses = forms.MultipleChoiceField(choices=userChoices, widget=forms.CheckboxSelectMultiple)
 
 
 class CredentialsForm(forms.Form):
