@@ -17,8 +17,10 @@ Including another URLconf
 from django.urls import path
 from blog import views
 
+
 urlpatterns = [
     path('', views.index, name='index'),
     path('sendMessage', views.request_page),
+    path('saveValue', views.save_value),
 
 ]
