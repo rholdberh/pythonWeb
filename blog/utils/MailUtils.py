@@ -6,11 +6,8 @@ def readMessageFromFile():
     message = open(os.path.join(BASE_DIR, "resources/reportMail.txt"), mode="r", encoding="UTF-8")
     return message.read()
 
-
 def getBodyMesage(data):
-    message = readMessageFromFile()
-    return message % (data)
-
+    return readMessageFromFile()
 
 def getListOfRecepients():
     with open("resources/emailList.txt", "r") as ins:

@@ -15,21 +15,30 @@
     <h1>First Blog</h1>
     <h2>Title</h2>
     <h3>Posted on date by author</h3>
-    <p>{{ body }}</p>
-
 </div>
 
 
-<form action="saveCred" method="post">
+<form action="submitMail" method="post">
     {% csrf_token %}
-    {{ userCheckBoxes }}
+
+    <div style="width:300px;float:left;border:1px" class="emailList">
+    {{ userCheckBoxes.as_ul }}
+    </div>
+    <div style="width:300px;float:right;border:1px" class="credentialsForm">
     {{ credentialsForm | linebreaks }}
-    {% for email in emails %}
+    </div>
+    <br><br><br><br><br>
+    <div style="bottom:0" class="textArea">
+    {{ emailTextArea }}
+    </div>
+<!--     {% for email in emails %}
         {%if email%}
             <input type="checkbox" name="email" value="{{email}}" /> {{email}}<br />
         {% endif %}
-    {% endfor %}
-    <input type="submit" value="Submit">
+    {% endfor %} -->
+
+    <input style="position:absolute;bottom:0" type="submit" value="Submit">
+
 </form>
 
 

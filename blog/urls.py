@@ -21,6 +21,6 @@ from blog import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('sendMessage', views.request_page),
-    path('saveCred', views.getCredentials),
+    path('submitMail', views.submitMail),
 
 ]

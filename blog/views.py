@@ -2,21 +2,18 @@ from django.shortcuts import render_to_response, render, redirect, get_object_or
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect
 from blog.utils import MailUtils
-from .forms import CredentialsForm, UserCheckbox
+from .forms import CredentialsForm, UserCheckbox, EmailForm
 
 
 def index(requet):
-    prepMessage = MailUtils.getBodyMesage("2018-12-11")
-    emails = MailUtils.getListOfRecepients()
     credForm = CredentialsForm()
-
+    emailTextArea = EmailForm()
     checkBoxes = UserCheckbox()
 
     content = {
-        'body': prepMessage,
         'credentialsForm': credForm,
-        'emails': emails,
         'userCheckBoxes': checkBoxes,
+        'emailTextArea': emailTextArea,
     }
     return render_to_response('index.html', content)
 
@@ -26,7 +23,7 @@ def request_page(request):
 
 
 @csrf_exempt
-def getCredentials(request):
+def submitMail(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
