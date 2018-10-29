@@ -13,4 +13,8 @@ def getBodyMesage(data):
 
 
 def getListOfRecepients():
-    print("dd")
+    with open("resources/emailList.txt", "r") as ins:
+        contents = [x.strip() for x in ins.readlines()]
+        return contents
+
+
