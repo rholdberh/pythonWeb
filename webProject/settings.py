@@ -25,7 +25,7 @@ SECRET_KEY = 'a9j&=*0zi*l@hyx8###s36ms5l7w!y85+=hl+^)ta)*#b)lgne'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['10.196.232.15']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blog'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'webProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['./blog/templates'],
+        'DIRS': [os.path.join(BASE_DIR,'./blog/templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

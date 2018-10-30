@@ -12,6 +12,6 @@ def getBodyMesage():
 
 
 def getListOfRecepients():
-    with open("resources/emailList.txt", "r") as ins:
+    with open(os.path.join(BASE_DIR, "resources/emailList.txt"), mode="r", encoding="UTF-8") as ins:
         contents = [x.strip() for x in ins.readlines()]
         return contents
