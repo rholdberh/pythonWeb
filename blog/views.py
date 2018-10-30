@@ -34,15 +34,10 @@ def submitMail(request):
             # redirect to a new URL:
             firstName = credentialsForm.cleaned_data['firstName']
 
+            emails = request.POST.getlist('emailChoses')
 
-            emails = request.POST.getlist('email')
-
-            emails2 = request.POST.getlist('emailChoses')
-
-            print("BLAAAAAAAAAAAAAAAAAAAAA")
-            print(emails2)
             content = {
-                'user': emails2,
+                'user': emails,
             }
             return render_to_response('done.html', content)
         else:
