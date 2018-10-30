@@ -7,8 +7,8 @@ class UserCheckbox(forms.Form):
     userChoices = [(v, v) for v in emails]
     emailChoses = forms.MultipleChoiceField(
         choices=userChoices,
-        widget=forms.CheckboxSelectMultiple,
-        label='Email List')
+        widget=forms.CheckboxSelectMultiple(attrs={'class': 'checkmark'}),
+        label=False)
 
 
 class CredentialsForm(forms.Form):

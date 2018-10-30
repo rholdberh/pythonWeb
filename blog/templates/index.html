@@ -3,8 +3,9 @@
 <html lang="en">
 
 <head>
+    {% load staticfiles %}
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link href="images/favicon.ico" rel="shortcut icon">
     <title>First Blog</title>
 </head>
@@ -12,23 +13,21 @@
 <body>
 
 <div class="container">
-    <h1>First Blog</h1>
-    <h2>Title</h2>
-    <h3>Posted on date by author</h3>
+    <h3>Page to send email</h3>
 </div>
 
 
 <form action="submitMail" method="post">
     {% csrf_token %}
-
-    <div style="width:300px;float:left;border:1px" class="emailList">
-    {{ userCheckBoxes.as_ul }}
+    <div class="emailList">
+    {{ userCheckBoxes }}
     </div>
-    <div style="width:300px;float:right;border:1px" class="credentialsForm">
+
+    <div class="credentialsForm">
     {{ credentialsForm | linebreaks }}
     </div>
     <br><br><br><br><br>
-    <div style="bottom:0" class="textArea">
+    <div style="float:left" class="textArea">
     {{ emailTextArea }}
     </div>
 <!--     {% for email in emails %}
