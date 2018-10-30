@@ -17,7 +17,7 @@
 </div>
 
 
-<form action="submitMail" method="post">
+<form class="mailForm" action="submitMail" method="post">
     {% csrf_token %}
     <div class="emailList">
     {{ userCheckBoxes }}
@@ -26,8 +26,7 @@
     <div class="credentialsForm">
     {{ credentialsForm | linebreaks }}
     </div>
-    <br><br><br><br><br>
-    <div style="float:left" class="textArea">
+    <div class="textArea">
     {{ emailTextArea }}
     </div>
 <!--     {% for email in emails %}
@@ -35,9 +34,9 @@
             <input type="checkbox" name="email" value="{{email}}" /> {{email}}<br />
         {% endif %}
     {% endfor %} -->
-
-    <input style="position:absolute;bottom:0" type="submit" value="Submit">
-
+    <div class="submit">
+    <input class="button" type="submit" value="Submit">
+    </div>
 </form>
 
 
