@@ -22,24 +22,7 @@
 
 <form class="mailForm" action="submitMail" method="post">
     {% csrf_token %}
-
     {{mail_form }}
-
-    <!--<div class="emailList">-->
-    <!--{{ userCheckBoxes }}-->
-    <!--</div>-->
-
-    <!--<div class="credentialsForm">-->
-    <!--{{ credentialsForm | linebreaks }}-->
-    <!--</div>-->
-    <!--<div class="textArea">-->
-    <!--{{ emailTextArea }}-->
-    <!--</div>-->
-<!--&lt;!&ndash;     {% for email in emails %}-->
-        <!--{%if email%}-->
-            <!--<input type="checkbox" name="email" value="{{email}}" /> {{email}}<br />-->
-        <!--{% endif %}-->
-    <!--{% endfor %} &ndash;&gt;-->
     <div class="submit">
     <input class="button" type="submit" value="Submit">
     </div>
