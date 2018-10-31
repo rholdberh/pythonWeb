@@ -4,7 +4,7 @@ from blog.utils import MailUtils
 
 
 class MailForm(forms.Form):
-    prep_subject='Stížnost na společnost VAFO s.r.o - smrad z granuli na Zličíne'
+    prep_subject = 'BLA'
     emails = MailUtils.getListOfRecepients()
     userChoices = [(v, v) for v in emails]
     emailChoses = forms.MultipleChoiceField(
