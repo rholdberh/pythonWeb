@@ -1,7 +1,7 @@
 from django.shortcuts import render_to_response, render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect
-from .forms import CredentialsForm, UserCheckbox, EmailForm
+from .forms import CredentialsForm, UserCheckbox, EmailForm, MailForm
 
 
 def index(requet):
@@ -9,10 +9,15 @@ def index(requet):
     emailTextArea = EmailForm()
     checkBoxes = UserCheckbox()
 
+    mail_form = MailForm()
+
+
     content = {
-        'credentialsForm': credForm,
-        'userCheckBoxes': checkBoxes,
-        'emailTextArea': emailTextArea,
+        # 'credentialsForm': credForm,
+        # 'userCheckBoxes': checkBoxes,
+        # 'emailTextArea': emailTextArea,
+
+        'mail_form': mail_form,
     }
     return render_to_response('index.html', content)
 

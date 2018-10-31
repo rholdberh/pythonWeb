@@ -7,31 +7,26 @@
 	padding-left: 50px
 }
 
-ul#id_emailChoses {
+#id_emailChoses {
 	list-style-type: none;
 }
 
-.credentialsForm label {
-	width: 3%;
-	display: inline-block;
-	font-size: .8rem;
-}
-
-.credentialsForm input {
-	margin: .2rem 0;
-	padding: .2rem;
-	border-radius: 4px;
-	border: 1px solid #ddd;
-}
-
-.textArea label {
+.mailForm label {
 	display: block;
 	font-size: 12px;
 	letter-spacing: 1px;
 	padding-bottom: 4px
 }
 
-.textArea input {
+input {
+	margin: .2rem 0;
+	padding: .2rem;
+	border-radius: 4px;
+	border: 1px solid #ddd;
+}
+
+
+#id_email {
 	padding: 10px;
 	line-height: 1.5;
 	border-radius: 5px;
