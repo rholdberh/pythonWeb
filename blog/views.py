@@ -26,9 +26,9 @@ def submitMail(request):
         if mail_form.is_valid():
             emails = mail_form.cleaned_data['emailChoses']
             message_body = mail_form.cleaned_data['email']
-
-            # obj_mail = Mail()
-            # obj_mail.send_mail(message_body, 'bla', emails)
+            subject = mail_form.cleaned_data['subject']
+            obj_mail = Mail()
+            obj_mail.send_mail(message_body, subject, emails)
 
             content = {
                 'user': emails,

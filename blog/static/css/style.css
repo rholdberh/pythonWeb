@@ -25,6 +25,9 @@ input {
 	border: 1px solid #ddd;
 }
 
+#id_subject {
+    width: 405px;
+}
 
 #id_email {
 	padding: 10px;
@@ -35,4 +38,5 @@ input {
 	display: block;
 	font-size: 12px;
 	letter-spacing: 1px;
+	width: 400px;
 }

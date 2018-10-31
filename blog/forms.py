@@ -4,6 +4,7 @@ from blog.utils import MailUtils
 
 
 class MailForm(forms.Form):
+    prep_subject='Stížnost na společnost VAFO s.r.o - smrad z granuli na Zličíne'
     emails = MailUtils.getListOfRecepients()
     userChoices = [(v, v) for v in emails]
     emailChoses = forms.MultipleChoiceField(
@@ -11,7 +12,7 @@ class MailForm(forms.Form):
         widget=forms.CheckboxSelectMultiple(attrs={'class': 'checkmark'}),
         label=False)
 
-    userName = forms.CharField(label='User', max_length=10)
+    subject = forms.CharField(label='Subject', initial=prep_subject)
     prepMessage = MailUtils.getBodyMesage()
     email = forms.CharField(
         widget=forms.Textarea(),
