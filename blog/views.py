@@ -1,7 +1,5 @@
 from django.shortcuts import render_to_response, render, redirect, get_object_or_404
-from django.views.decorators.csrf import csrf_exempt
-from django.template import RequestContext
-from blog.utils.Mail import Mail
+from django.http import HttpResponseRedirect
 from .forms import MailForm
 
 
@@ -11,6 +9,10 @@ def index(request):
         'mail_form': mail_form,
     }
     return render(request, 'index.html', content)
+
+
+def done(request):
+    return render(request, 'done.html')
 
 
 def submitMail(request):
@@ -30,14 +32,9 @@ def submitMail(request):
             # obj_mail = Mail()
             # obj_mail.send_mail(message_body, subject, emails)
 
-            print('MAIL SEND')
-
-            content = {
-                'user': emails,
-                'mail_body': message_body,
-            }
-
-            return render(request, 'done.html', content)
+            request.session['user'] = emails
+            request.session['mail_body'] = message_body
+            return redirect('done-page')
         else:
             return render_to_response('error.html')
 

@@ -15,9 +15,9 @@
     <h1>First Blog</h1>
     <h2>Title</h2>
     <h3>Recipients:</h3>
-    <p> {{ user }}</p>
+    <p> {{ request.session.user }}</p>
     <h3>Mail:</h3>
-    <p>{{ mail_body }}
+    <p>{{ request.session.mail_body }}
 </div>
 
 

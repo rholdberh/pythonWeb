@@ -21,5 +21,6 @@ from blog import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('submitmail', views.submitMail, name='submitmail'),
+    path('done', views.done, name='done-page'),
 
 ]
