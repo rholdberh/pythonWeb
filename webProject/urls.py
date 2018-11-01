@@ -25,5 +25,5 @@ urlpatterns = [
 from django.urls import include
 
 urlpatterns += [
-    path('home/', include('blog.urls')),
+    path('report/', include('blog.urls')),
 ]
