@@ -29,6 +29,15 @@
 </form>
 
 
+<form class="fileupload" action="fileupload" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{upload_form }}
+    <div class="submit">
+        <input class="button" type="submit" value="Save">
+    </div>
+</form>
+
+
 </body>
 
 </html>

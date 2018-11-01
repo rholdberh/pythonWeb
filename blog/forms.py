@@ -18,3 +18,6 @@ class MailForm(forms.Form):
         widget=forms.Textarea(),
         label='Mail',
         initial=prepMessage)
+
+class UploadFileForm(forms.Form):
+    file = forms.FileField()
