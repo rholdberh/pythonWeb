@@ -11,9 +11,10 @@ class Mail:
 
     def send_mail(self, message_body, message_subject, send_to):
         for rec in send_to:
-            self.send( message_body, message_subject,rec)
+            self.send(message_body, message_subject,rec)
 
     def send(self, message_body, message_subject, send_to):
+        print(self.gmail_user)
         print(send_to)
         sent_from = self.gmail_user
         subject = message_subject

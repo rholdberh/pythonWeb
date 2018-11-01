@@ -20,7 +20,6 @@ from blog import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('sendMessage', views.request_page),
-    path('submitMail', views.submitMail),
+    path('submitmail', views.submitMail, name='submitmail'),
 
 ]
