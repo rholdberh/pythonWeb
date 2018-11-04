@@ -1,11 +1,12 @@
 from django import forms
 
-from blog.utils import MailUtils
+from blog.utils.Utils import Utils
 
 
 class MailForm(forms.Form):
+    utils = Utils()
     prep_subject = 'BLA'
-    emails = MailUtils.getListOfRecepients()
+    emails = utils.getListOfRecepients()
     userChoices = [(v, v) for v in emails]
     emailChoses = forms.MultipleChoiceField(
         choices=userChoices,
@@ -13,7 +14,7 @@ class MailForm(forms.Form):
         label=False)
 
     subject = forms.CharField(label='Subject', initial=prep_subject)
-    prepMessage = MailUtils.getBodyMesage()
+    prepMessage = utils.getBodyMesage()
     email = forms.CharField(
         widget=forms.Textarea(),
         label='Mail',

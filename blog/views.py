@@ -6,7 +6,6 @@ import os
 
 
 def index(request):
-    print('LOADING INDEX')
     mail_form = MailForm()
     upload_form = UploadFileForm()
     content = {
