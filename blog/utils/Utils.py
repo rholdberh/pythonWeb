@@ -9,8 +9,10 @@ class Utils:
 
     def readMessageFromFile(self):
         print('READINF HILE')
-        message = open(os.path.join(BASE_DIR, "resources/reportMail.txt"), mode="r", encoding="UTF-8")
-        return message.read()
+        file = open(os.path.join(BASE_DIR, "resources/reportMail.txt"), mode="r", encoding="UTF-8")
+        message = file.read()
+        file.closed
+        return message
 
     def getBodyMesage(self):
         return self.readMessageFromFile()
@@ -18,4 +20,4 @@ class Utils:
     def getListOfRecepients(self):
         with open(os.path.join(BASE_DIR, "resources/emailList.txt"), mode="r", encoding="UTF-8") as ins:
             contents = [x.strip() for x in ins.readlines()]
-            return contents
+        return contents
