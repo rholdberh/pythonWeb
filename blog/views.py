@@ -57,3 +57,15 @@ def handle_uploaded_file(f):
             print(chunk)
             destination.write(chunk)
     print('FILE UPDATED')
+
+def upload_file2(request):
+    if request.method == 'POST':
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            print("File valid")
+            form.save()
+            print("File saved")
+            return redirect('index')
+        else:
+            print("File invalid")
+
