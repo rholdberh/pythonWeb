@@ -21,3 +21,18 @@ class Utils:
         with open(os.path.join(BASE_DIR, "resources/emailList.txt"), mode="r", encoding="UTF-8") as ins:
             contents = [x.strip() for x in ins.readlines()]
         return contents
+
+
+from django.core.files.storage import FileSystemStorage
+
+
+class MyFileStorage(FileSystemStorage):
+
+    def get_available_name(self, name, max_length=None):
+        if self.exists(name):
+            print(BASE_DIR)
+            dir = os.path.join(BASE_DIR, "resources")
+            print('DIR NAME')
+            print(dir)
+            os.remove(os.path.join(dir, name))
+        return name  # simply returns the name passed

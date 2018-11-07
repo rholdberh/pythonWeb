@@ -1,5 +1,5 @@
 from django import forms
-
+from .models import Document
 from blog.utils.Utils import Utils
 
 
@@ -21,11 +21,11 @@ class MailForm(forms.Form):
         initial=prepMessage)
 
 
+
+
+
 class UploadFileForm(forms.Form):
     file = forms.FileField()
-
-
-from .models import Document
 
 
 class UploadFileForm2(forms.ModelForm):
