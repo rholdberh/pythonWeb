@@ -20,12 +20,15 @@ class MailForm(forms.Form):
         label='Mail',
         initial=prepMessage)
 
+
 class UploadFileForm(forms.Form):
     file = forms.FileField()
 
 
 from .models import Document
+
+
 class UploadFileForm2(forms.ModelForm):
     class Meta:
         model = Document
-        fields = ('document', )
+        fields = ('document',)

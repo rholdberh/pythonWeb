@@ -1,13 +1,23 @@
 from django.shortcuts import render_to_response, render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import MailForm, UploadFileForm
+from .forms import MailForm, UploadFileForm, UploadFileForm2
 from webProject.settings import BASE_DIR
 import os
 
 
+# def index(request):
+#     mail_form = MailForm()
+#     upload_form = UploadFileForm()
+#     content = {
+#         'mail_form': mail_form,
+#         'upload_form': upload_form,
+#     }
+#     return render(request, 'index.html', content)
+#
+
 def index(request):
     mail_form = MailForm()
-    upload_form = UploadFileForm()
+    upload_form = UploadFileForm2()
     content = {
         'mail_form': mail_form,
         'upload_form': upload_form,
@@ -60,7 +70,7 @@ def handle_uploaded_file(f):
 
 def upload_file2(request):
     if request.method == 'POST':
-        form = UploadFileForm(request.POST, request.FILES)
+        form = UploadFileForm2(request.POST, request.FILES)
         if form.is_valid():
             print("File valid")
             form.save()
@@ -68,4 +78,6 @@ def upload_file2(request):
             return redirect('index')
         else:
             print("File invalid")
+    else:
+        return render(request, 'error.html')
 
